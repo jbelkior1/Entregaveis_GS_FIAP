@@ -1,0 +1,282 @@
+{
+  "name": "Mission Control AI /  Gerador de Telemetria / FIAP",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {\n  json: {\n    nome_foguete:  'Orion Alpha GS-2026',\n    atualizado_em: new Date().toISOString(),\n    distancia_km:  Math.floor(Math.random() * 419701) + 300,\n    temperatura:   parseFloat((Math.random() * 24 + 18).toFixed(1)),\n    comunicacao:   Math.floor(Math.random() * 91) + 10,\n    bateria:       Math.floor(Math.random() * 96) + 5,\n    combustivel:   Math.floor(Math.random() * 100) + 1,\n    oxigenio:      Math.floor(Math.random() * 51) + 50,\n    estabilidade:  Math.floor(Math.random() * 81) + 20,\n  }\n};"
+      },
+      "id": "f133a277-fd49-4c88-9447-d7a7b7141f3b",
+      "name": "Gerar Dados Aleatórios",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list"
+        },
+        "table": {
+          "__rl": true,
+          "value": "telemetria_foguete",
+          "mode": "list"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "nome_foguete": "={{ $json.nome_foguete }}",
+            "atualizado_em": "={{ $json.atualizado_em }}",
+            "distancia_km": "={{ $json.distancia_km }}",
+            "temperatura": "={{ $json.temperatura }}",
+            "comunicacao": "={{ $json.comunicacao }}",
+            "bateria": "={{ $json.bateria }}",
+            "combustivel": "={{ $json.combustivel }}",
+            "oxigenio": "={{ $json.oxigenio }}",
+            "estabilidade": "={{ $json.estabilidade }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "nome_foguete",
+              "displayName": "nome_foguete",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "atualizado_em",
+              "displayName": "atualizado_em",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "distancia_km",
+              "displayName": "distancia_km",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "temperatura",
+              "displayName": "temperatura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "comunicacao",
+              "displayName": "comunicacao",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "bateria",
+              "displayName": "bateria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "combustivel",
+              "displayName": "combustivel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "oxigenio",
+              "displayName": "oxigenio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estabilidade",
+              "displayName": "estabilidade",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "anomalia",
+              "displayName": "anomalia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "d8cd41bb-ec0e-492f-9dd1-8ce793db1c50",
+      "name": "Inserir no PostgreSQL",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        592,
+        -32
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "hqfE8NFRRBaHW6lm",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        192,
+        -32
+      ],
+      "id": "f6f98d3d-5516-4a38-8b65-542f166c56e2",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "75fee53b-0871-4218-bc0a-d50067f55b61",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        -176
+      ],
+      "id": "ee0977e9-8455-4dbe-a4d8-e27b0d22ad8a",
+      "name": "Webhook",
+      "webhookId": "75fee53b-0871-4218-bc0a-d50067f55b61"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $('Inserir no PostgreSQL').item.json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        800,
+        -32
+      ],
+      "id": "9938fcde-0fcd-493d-b299-b848fa89e3e4",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gerar Dados Aleatórios": {
+      "main": [
+        [
+          {
+            "node": "Inserir no PostgreSQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Gerar Dados Aleatórios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Gerar Dados Aleatórios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inserir no PostgreSQL": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "08ece8ff-3643-4d17-96b1-f62fb7a14a4c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ab0bb1fdeea2e791c0856d4d00cdddac2c90cea3e34cdccf1ba0364979d47ae0"
+  },
+  "nodeGroups": [],
+  "id": "boAYl1NZ3ev0tO7P",
+  "tags": []
+}
