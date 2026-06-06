@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitoramento de Missão Espacial</title>
+</head>
+<body>
+
+  <h1>Monitoramento de Missão Espacial</h1>
+
+  <h2>Inserir dados</h2>
+
+  <label>Temperatura da nave:</label><br>
+  <input type="number" id="temperatura"><br><br>
+
+  <label>Nível de energia (%):</label><br>
+  <input type="number" id="energia"><br><br>
+
+  <label>Comunicação:</label><br>
+  <select id="comunicacao">
+    <option value="1">Ativa</option>
+    <option value="0">Falha</option>
+  </select><br><br>
+
+  <button onclick="inserirDados()">Inserir dados</button>
+  <button onclick="visualizarStatus()">Visualizar status</button>
+  <button onclick="executarAnalise()">Executar análise</button>
+  <button onclick="mostrarHistorico()">Histórico das leituras</button>
+  <button onclick="encerrarSistema()">Encerrar sistema</button>
+
+  <hr>
+
+  <h2>Resultado</h2>
+  <pre id="resultado"></pre>
+
+  <script>
+    let historico = [];
+
+    function analisarDados(temperatura, energia, comunicacao) {
+      let alertas = [];
+
+      if (temperatura > 80) {
+        alertas.push("Alerta de superaquecimento");
+      }
+
+      if (energia < 20) {
+        alertas.push("Economia de energia");
+      }
+
+      if (comunicacao == 0) {
+        alertas.push("Falha de comunicação");
+      }
+
+      if (alertas.length === 0) {
+        alertas.push("Tudo normal");
+      }
+
+      return alertas;
+    }
+
+    function definirStatus(alertas) {
+      if (alertas.includes("Alerta de superaquecimento") || alertas.includes("Falha de comunicação")) {
+        return "CRÍTICO";
+      }
+
+      if (alertas.includes("Economia de energia")) {
+        return "ATENÇÃO";
+      }
+
+      return "NORMAL";
+    }
+
+    function inserirDados() {
+      let campoTemperatura = document.getElementById("temperatura").value;
+      let campoEnergia = document.getElementById("energia").value;
+
+      if (campoTemperatura === "" && campoEnergia === "") {
+        alert("Nenhum valor foi inserido");
+        return;
+      }
+
+      if (campoTemperatura === "") {
+        alert("Digite a Temperatura");
+        return;
+      }
+
+      if (campoEnergia === "") {
+        alert("Digite o Nível de Energia");
+        return;
+      }
+
+      let temperatura = Number(campoTemperatura);
+      let energia = Number(campoEnergia);
+      let comunicacao = Number(document.getElementById("comunicacao").value);
+
+      let alertas = analisarDados(temperatura, energia, comunicacao);
+      let status = definirStatus(alertas);
+
+      let leitura = {
+        temperatura: temperatura,
+        energia: energia,
+        comunicacao: comunicacao,
+        alertas: alertas,
+        status: status
+      };
+
+      historico.push(leitura);
+
+      document.getElementById("resultado").innerText = "Dados cadastrados com sucesso!";
+    }
+
+    function visualizarStatus() {
+      if (historico.length === 0) {
+        document.getElementById("resultado").innerText = "Nenhum dado cadastrado.";
+        return;
+      }
+
+      let leitura = historico[historico.length - 1];
+
+      let texto = "";
+      texto += "STATUS ATUAL DA MISSÃO\n";
+      texto += "Temperatura: " + leitura.temperatura + "°C\n";
+      texto += "Energia: " + leitura.energia + "%\n";
+
+      if (leitura.comunicacao === 1) {
+        texto += "Comunicação: Ativa\n";
+      } else {
+        texto += "Comunicação: Falha\n";
+      }
+
+      texto += "Status operacional: " + leitura.status;
+
+      document.getElementById("resultado").innerText = texto;
+    }
+
+    function executarAnalise() {
+      if (historico.length === 0) {
+        document.getElementById("resultado").innerText = "Nenhum dado cadastrado para análise.";
+        return;
+      }
+
+      let leitura = historico[historico.length - 1];
+
+      let texto = "";
+      texto += "ANÁLISE DA MISSÃO\n";
+
+      for (let i = 0; i < leitura.alertas.length; i++) {
+        texto += "- " + leitura.alertas[i] + "\n";
+      }
+
+      texto += "Status operacional: " + leitura.status;
+
+      document.getElementById("resultado").innerText = texto;
+    }
+
+    function mostrarHistorico() {
+      if (historico.length === 0) {
+        document.getElementById("resultado").innerText = "Nenhuma leitura no histórico.";
+        return;
+      }
+
+      let texto = "";
+      texto += "HISTÓRICO DAS LEITURAS\n";
+
+      for (let i = 0; i < historico.length; i++) {
+        texto += "\nLeitura " + (i + 1) + "\n";
+        texto += "Temperatura: " + historico[i].temperatura + "°C\n";
+        texto += "Energia: " + historico[i].energia + "%\n";
+
+        if (historico[i].comunicacao === 1) {
+          texto += "Comunicação: Ativa\n";
+        } else {
+          texto += "Comunicação: Falha\n";
+        }
+
+        texto += "Status: " + historico[i].status + "\n";
+      }
+
+      document.getElementById("resultado").innerText = texto;
+    }
+
+    function encerrarSistema() {
+      historico = [];
+      document.getElementById("resultado").innerText = "Sistema encerrado. Histórico apagado.";
+    }
+  </script>
+
+</body>
+</html>
