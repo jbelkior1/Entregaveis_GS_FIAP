@@ -2,7 +2,7 @@
 
 **Integrantes:**
 * João Vitor Belchior Domingos Leite - RM: 572478
-* Gabriel Pedro de Souza - RM: 572478
+* Gabriel Pedro de Souza - RM: 571995
 
 ## Descrição do Projeto
 Sistema de monitoramento de missão espacial para a Global Solution 2026.1 de Ciência da Computação, desenvolvido com uma arquitetura baseada em microsserviços. 
