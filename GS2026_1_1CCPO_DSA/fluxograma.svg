@@ -1,0 +1,92 @@
+<svg viewBox="0 0 760 930" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="930" fill="#ffffff"/>
+  <text x="380" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Fluxograma — Monitoramento de Missão Espacial</text>
+
+  <!-- INICIO -->
+  <ellipse cx="380" cy="75" rx="72" ry="26" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+  <text x="380" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">INÍCIO</text>
+  <line x1="380" y1="101" x2="380" y2="131" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Inserir dados (entrada) -->
+  <polygon points="242,134 562,134 518,186 198,186" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="380" y="156" text-anchor="middle" font-size="14" fill="#1a1a1a">Inserir dados dos sensores:</text>
+  <text x="380" y="174" text-anchor="middle" font-size="13" fill="#444444">Temperatura, Energia, Comunicação</text>
+  <line x1="380" y1="186" x2="380" y2="214" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decisao: campos preenchidos -->
+  <polygon points="380,214 492,256 380,298 268,256" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+  <text x="380" y="252" text-anchor="middle" font-size="13" fill="#1a1a1a">Campos</text>
+  <text x="380" y="268" text-anchor="middle" font-size="13" fill="#1a1a1a">preenchidos?</text>
+
+  <!-- ramo Nao (direita) -->
+  <line x1="492" y1="256" x2="600" y2="256" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="545" y="248" text-anchor="middle" font-size="12" font-weight="bold" fill="#c62828">Não</text>
+  <rect x="600" y="232" width="148" height="48" rx="6" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+  <text x="674" y="252" text-anchor="middle" font-size="12" fill="#1a1a1a">Exibir aviso e</text>
+  <text x="674" y="268" text-anchor="middle" font-size="12" fill="#1a1a1a">solicitar o dado</text>
+  <!-- loop de volta do Nao -->
+  <polyline points="674,232 674,160 542,160" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ramo Sim (baixo) -->
+  <text x="394" y="314" font-size="12" font-weight="bold" fill="#2e7d32">Sim</text>
+  <line x1="380" y1="298" x2="380" y2="326" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- analisarDados -->
+  <rect x="230" y="328" width="300" height="54" rx="6" fill="#ede7f6" stroke="#5e35b1" stroke-width="2"/>
+  <text x="380" y="350" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">analisarDados( )</text>
+  <text x="380" y="368" text-anchor="middle" font-size="12" fill="#444444">gera a lista de alertas (vetor)</text>
+
+  <!-- nota de regras (direita) -->
+  <line x1="530" y1="355" x2="560" y2="355" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="560" y="324" width="188" height="84" rx="6" fill="#fafafa" stroke="#bdbdbd" stroke-width="1.5"/>
+  <text x="568" y="343" font-size="11" fill="#555555">Temp &gt; 80  →  superaquecimento</text>
+  <text x="568" y="361" font-size="11" fill="#555555">Energia &lt; 20  →  economia</text>
+  <text x="568" y="379" font-size="11" fill="#555555">Comunicação = 0  →  falha</text>
+  <text x="568" y="397" font-size="11" fill="#555555">nenhuma  →  tudo normal</text>
+
+  <line x1="380" y1="382" x2="380" y2="410" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- definirStatus -->
+  <rect x="230" y="412" width="300" height="54" rx="6" fill="#ede7f6" stroke="#5e35b1" stroke-width="2"/>
+  <text x="380" y="434" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a1a">definirStatus( )</text>
+  <text x="380" y="452" text-anchor="middle" font-size="12" fill="#444444">NORMAL / ATENÇÃO / CRÍTICO</text>
+  <line x1="380" y1="466" x2="380" y2="494" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- salvar no historico -->
+  <rect x="230" y="496" width="300" height="48" rx="6" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="380" y="525" text-anchor="middle" font-size="13" fill="#1a1a1a">Salvar leitura no vetor "historico"</text>
+  <line x1="380" y1="544" x2="380" y2="572" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- visualizar (saida) -->
+  <polygon points="242,574 562,574 518,626 198,626" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="380" y="604" text-anchor="middle" font-size="13" fill="#1a1a1a">Visualizar status / análise / histórico</text>
+  <line x1="380" y1="626" x2="380" y2="654" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decisao: encerrar -->
+  <polygon points="380,654 492,696 380,738 268,696" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+  <text x="380" y="692" text-anchor="middle" font-size="13" fill="#1a1a1a">Encerrar</text>
+  <text x="380" y="708" text-anchor="middle" font-size="13" fill="#1a1a1a">sistema?</text>
+
+  <!-- ramo Nao (volta ao inicio do ciclo, pela esquerda) -->
+  <text x="200" y="688" text-anchor="middle" font-size="12" font-weight="bold" fill="#c62828">Não</text>
+  <polyline points="268,696 95,696 95,160 218,160" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ramo Sim -->
+  <text x="394" y="754" font-size="12" font-weight="bold" fill="#2e7d32">Sim</text>
+  <line x1="380" y1="738" x2="380" y2="766" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- encerrarSistema -->
+  <rect x="230" y="768" width="300" height="48" rx="6" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+  <text x="380" y="797" text-anchor="middle" font-size="13" fill="#1a1a1a">encerrarSistema( ): limpar histórico</text>
+  <line x1="380" y1="816" x2="380" y2="844" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- FIM -->
+  <ellipse cx="380" cy="872" rx="72" ry="26" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+  <text x="380" y="877" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">FIM</text>
+</svg>
