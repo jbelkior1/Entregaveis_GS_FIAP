@@ -52,4 +52,4 @@ Se a leitura tem qualquer alerta CRÍTICO, o status fica CRÍTICO. Se tem só AT
 O fluxograma do sistema está no arquivo `fluxograma.svg`.
 
 ## Vídeo de demonstração
-_link a adicionar_
+https://youtu.be/yGc5hFBmr2Q
