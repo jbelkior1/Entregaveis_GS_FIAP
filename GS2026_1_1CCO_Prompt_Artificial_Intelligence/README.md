@@ -39,5 +39,10 @@ Telemetria no PostgreSQL:
 - IA: Gemma 2B via Ollama
 - Hospedagem: VPS própria
 
+## Código fonte
+- `chat.html` — frontend do painel (HTML + CSS + JavaScript que faz a integração com o webhook do n8n e com a IA via Ollama)
+- `Fluxo_n8n.json` — workflow do n8n que gera a telemetria e persiste no PostgreSQL
+- `Prompt_system.md` — system prompt usado para configurar o modelo Gemma
+
 ## Vídeo de demonstração
 [Assistir no YouTube](https://youtu.be/EbjRTUfPaxk)
