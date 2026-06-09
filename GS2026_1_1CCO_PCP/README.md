@@ -4,8 +4,8 @@
 
 Sistema em Python que simula o monitoramento de uma missão espacial. O programa percorre 6 ciclos de telemetria, analisa cada um, gera alertas e mostra um relatório final no terminal.
 
-## Equipe AstroTeam
-- João Vitor Belchior - RM: 572478
+## Equipe AstroTeam (Dupla)
+- João Vitor Belchior Domingos Leite - RM: 572478
 - Gabriel Pedro de Souza - RM: 571995
 
 ## Como executar

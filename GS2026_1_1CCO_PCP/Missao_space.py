@@ -1,7 +1,9 @@
 # MISSION SPACE
 # Sistema Inteligente de Monitoramento de Missao Espacial
 # GS2026.1 - Pensamento Computacional e Automacao com Python
-# Integrantes - Nome: João Vitor Belchior  / Gabriel Pedro
+# Equipe AstroTeam (Dupla)
+# Joao Vitor Belchior Domingos Leite - RM: 572478
+# Gabriel Pedro de Souza - RM: 571995
 
 
 NOME_DA_MISSAO = "MISSION CONTROL GS"
