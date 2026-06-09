@@ -3,7 +3,7 @@
 Repositório dos entregáveis da Global Solution 2026.1.
 
 ## Equipe AstroTeam
-- João Vitor Belchior - RM: 572478
+- João Vitor Belchior Domingos Leite - RM: 572478
 - Gabriel Pedro de Souza - RM: 571995
 
 ## Projetos
