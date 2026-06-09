@@ -9,14 +9,14 @@ Analise estatistica descritiva sobre o historico de missoes espaciais (1957-2020
 - Gabriel Pedro de Souza - RM: 571995
 
 ## Arquivos
-- `dados.csv` — base de dados real (4.324 missoes)
-- `analise.py` — codigo Python com tabelas de frequencia, graficos e analises univariadas
-- `gerar_relatorio.py` — script que gera o PDF final
-- `relatorio.pdf` — relatorio estatistico completo
-- `graficos/` — graficos gerados pelo script
+- `dados.csv` - base de dados real (4.324 missoes)
+- `analise.py` - codigo Python com tabelas de frequencia, graficos e analises univariadas
+- `gerar_relatorio.py` - script que gera o PDF final
+- `relatorio.pdf` - relatorio estatistico completo
+- `graficos/` - graficos gerados pelo script
 
 ## Base de dados
-**All Space Missions from 1957** — historico publico de lancamentos espaciais extraido de nextspaceflight.com, com 4.324 missoes registradas. Variaveis usadas:
+**All Space Missions from 1957** - historico publico de lancamentos espaciais extraido de nextspaceflight.com, com 4.324 missoes registradas. Variaveis usadas:
 - Ano de lancamento (quantitativa discreta)
 - Custo do foguete em milhoes USD (quantitativa continua)
 

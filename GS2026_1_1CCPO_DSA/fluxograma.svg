@@ -6,7 +6,7 @@
   </defs>
 
   <rect x="0" y="0" width="760" height="930" fill="#ffffff"/>
-  <text x="380" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Fluxograma — Monitoramento de Missão Espacial</text>
+  <text x="380" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Fluxograma - Monitoramento de Missão Espacial</text>
 
   <!-- INICIO -->
   <ellipse cx="380" cy="75" rx="72" ry="26" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
