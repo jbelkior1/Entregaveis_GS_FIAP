@@ -11,9 +11,8 @@ Analise estatistica descritiva sobre o historico de missoes espaciais (1957-2020
 ## Arquivos
 - `dados.csv` - base de dados real (4.324 missoes)
 - `analise.py` - codigo Python com tabelas de frequencia, graficos e analises univariadas
-- `gerar_relatorio.py` - script que gera o PDF final
 - `relatorio.pdf` - relatorio estatistico completo
-- `graficos/` - graficos gerados pelo script
+- `ModelagemLinear_AstroTeam.zip` - pacote final entregue no portal da FIAP
 
 ## Base de dados
 **All Space Missions from 1957** - historico publico de lancamentos espaciais extraido de nextspaceflight.com, com 4.324 missoes registradas. Variaveis usadas:
@@ -24,11 +23,10 @@ Fonte: https://github.com/camille-004/space-race-viz/blob/master/Space_Corrected
 
 ## Como executar
 ```
-python analise.py          # roda a analise no terminal e gera os graficos
-python gerar_relatorio.py  # gera o relatorio.pdf
+python analise.py
 ```
 
-Requer Python 3.10+ com `pandas`, `matplotlib`, `numpy` e `reportlab`.
+O script imprime as tabelas e estatisticas no terminal e gera os graficos na pasta `graficos/`. Requer Python 3.10+ com `pandas`, `matplotlib` e `numpy`.
 
 ## O que o relatorio contem
 - Tabela de distribuicao de frequencia para variavel discreta (ano)
