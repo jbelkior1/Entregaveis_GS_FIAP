@@ -19,8 +19,8 @@ os.makedirs("graficos", exist_ok=True)
 df = pd.read_csv("dados.csv")
 print("Total de missoes na base:", len(df))
 
-# Extrai o ano da data e converte o custo do foguete em numero
-df["Ano"] = pd.to_datetime(df["Datum"], errors="coerce", utc=True).dt.year
+# Extrai o ano direto da string da data (pega os 4 digitos) e converte o custo em numero
+df["Ano"] = df["Datum"].astype(str).str.extract(r"(\d{4})")[0].astype("Int64")
 df["Custo"] = pd.to_numeric(df[" Rocket"].str.replace(",", "").str.strip(), errors="coerce")
 
 # Variaveis que vamos analisar
