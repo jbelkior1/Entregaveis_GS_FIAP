@@ -1,6 +1,7 @@
 # GS2026.1 - Gerador do relatorio estatistico (PDF)
-# Equipe AstroTeam
-# Joao Vitor Belchior - RM: 572478
+# Modelagem Linear para Aprendizado de Maquina
+# Equipe AstroTeam (Dupla)
+# Joao Vitor Belchior Domingos Leite - RM: 572478
 # Gabriel Pedro de Souza - RM: 571995
 
 import os
@@ -166,8 +167,8 @@ story.append(Paragraph(
     estilos["CapaSub"],
 ))
 story.append(Spacer(1, 3 * cm))
-story.append(Paragraph("<b>Equipe AstroTeam</b>", estilos["CapaSub"]))
-story.append(Paragraph("Joao Vitor Belchior - RM: 572478", estilos["CapaSub"]))
+story.append(Paragraph("<b>Equipe AstroTeam (Dupla)</b>", estilos["CapaSub"]))
+story.append(Paragraph("Joao Vitor Belchior Domingos Leite - RM: 572478", estilos["CapaSub"]))
 story.append(Paragraph("Gabriel Pedro de Souza - RM: 571995", estilos["CapaSub"]))
 story.append(Spacer(1, 3 * cm))
 story.append(Paragraph("FIAP - 1CCO - 1o ano de Ciencia da Computacao", estilos["CapaSub"]))

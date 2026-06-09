@@ -1,6 +1,7 @@
 # GS2026.1 - Analise Estatistica - Missoes Espaciais 1957-2020
-# Equipe AstroTeam
-# Joao Vitor Belchior - RM: 572478
+# Modelagem Linear para Aprendizado de Maquina
+# Equipe AstroTeam (Dupla)
+# Joao Vitor Belchior Domingos Leite - RM: 572478
 # Gabriel Pedro de Souza - RM: 571995
 
 import os

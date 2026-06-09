@@ -4,8 +4,8 @@
 
 Analise estatistica descritiva sobre o historico de missoes espaciais (1957-2020), aplicada ao tema da Global Solution 2026.1.
 
-## Equipe AstroTeam
-- João Vitor Belchior - RM: 572478
+## Equipe AstroTeam (Dupla)
+- João Vitor Belchior Domingos Leite - RM: 572478
 - Gabriel Pedro de Souza - RM: 571995
 
 ## Arquivos
@@ -32,7 +32,7 @@ Requer Python 3.10+ com `pandas`, `matplotlib`, `numpy` e `reportlab`.
 
 ## O que o relatorio contem
 - Tabela de distribuicao de frequencia para variavel discreta (ano)
-- Tabela de distribuicao de frequencia para variavel continua (custo) com regra de Sturges
+- Tabela de distribuicao de frequencia para variavel continua (custo) com 5 classes
 - 2 graficos: barras por decada e histograma do custo (escala log)
 - Medidas de tendencia central: media, mediana, moda
 - Medidas de dispersao: maximo, minimo, amplitude, variancia, desvio padrao, CV
