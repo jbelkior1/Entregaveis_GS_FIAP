@@ -37,3 +37,6 @@ Calcula a pontuação de risco do ciclo, classifica a situação e gera uma reco
 - 0 a 2 pontos: MISSÃO ESTÁVEL
 - 3 a 5 pontos: MISSÃO EM ATENÇÃO
 - 6 a 10 pontos: MISSÃO CRÍTICA
+
+## Vídeo Pitch
+https://youtu.be/pzMZWkKNR5Y
